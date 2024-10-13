@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Standalone Footer</title>
+    <style>
+        /* Apply default font to the entire document */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #221f3b; /* Deep purple */
+            color: #f7f7f7; /* Light gray */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Footer styles */
+        .footer {
+            background-color: #221f3b; /* Deep purple */
+            color: #f7f7f7; /* Light gray */
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer button {
+            background-color: #ffd700; /* Gold */
+            color: #221f3b; /* Deep purple */
+            padding: 12px 24px; /* Increased padding for buttons */
+            border: none;
+            border-radius: 8px; /* Increased border-radius for buttons */
+            margin: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-size: 16px; /* Increased font size */
+            font-weight: bold; /* Bold font weight */
+            text-transform: uppercase; /* Uppercase text */
+        }
+
+        .footer button:hover {
+            background-color: #bb9eff; /* Light purple */
+            color: #fff; /* White */
+            transform: scale(1.05);
+        }
+
+        .footer p {
+            margin-top: 20px; /* Added margin to separate paragraph from buttons */
+            font-size: 14px; /* Decreased font size for paragraph */
+        }
+
+        /* Media query for smaller screens */
+        @media screen and (max-width: 600px) {
+            .footer button {
+                padding: 10px 20px; /* Adjusted padding for smaller screens */
+                font-size: 14px; /* Decreased font size for smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Standalone Footer -->
+    <div class="footer">
+        <button class="accordion" onclick="navigate('contact')">Contact Us</button>
+        <button class="accordion" onclick="navigate('follow')">Follow Us</button>
+        <button class="accordion" onclick="navigate('about')">About Us</button>
+        <button class="accordion" onclick="navigate('review')">Review Us</button>
+        <button class="accordion" onclick="navigate('faq')">Frequently Asked Questions</button>
+        <button class="accordion" onclick="navigate('tnc')">Terms and Conditions</button>
+        <!-- New button with dynamic navigation -->
+        <button class="footer-button" onclick="navigate('dynamic')">Dynamic Navigation</button>
+        <p>Shop smarter, live better. Explore our latest collections and enjoy secure shopping at [BUYit]. &copy; [2069] All rights reserved.</p>
+    </div>
+
+    <script>
+        // Get all buttons with class "accordion"
+        var acc = document.getElementsByClassName("accordion");
+
+        // Loop through each button
+        for (var i = 0; i < acc.length; i++) {
+            // Add click event listener to each button
+            acc[i].addEventListener("click", function() {
+                // Toggle "active" class to expand/collapse accordion
+                this.classList.toggle("active");
+
+                // Get the next sibling element of the button
+                var panel = this.nextElementSibling;
+
+                // Toggle display property of the panel
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    // Close all other panels before opening this one
+                    closeAllPanels();
+                    panel.style.display = "block";
+                }
+            });
+        }
+
+        // Function to close all panels
+        function closeAllPanels() {
+            // Get all panels
+            var panels = document.getElementsByClassName("panel");
+
+            // Loop through each panel and close it
+            for (var j = 0; j < panels.length; j++) {
+                panels[j].style.display = "none";
+                panels[j].previousElementSibling.classList.remove("active");
+            }
+        }
+
+        function navigate(page) {
+            switch (page) {
+                case 'about':
+                    window.location.href = 'about Us.html';
+                    break;
+                case 'contact':
+                    window.location.href = 'contact Us.html';
+                    break;
+                case 'follow':
+                    window.location.href = 'follow.html';
+                    break;
+                case 'review':
+                    window.location.href = 'review us.html';
+                    break;
+                case 'faq':
+                    window.location.href = 'faq.html';
+                    break;
+                case 'tnc':
+                    window.location.href = 'tnc.html';
+                    break;
+                case 'dynamic':
+                    // Add functionality for dynamic navigation button
+                    break;
+                default:
+                    console.log('Invalid navigation');
+            }
+        }
+    </script>
+</body>
+</html>

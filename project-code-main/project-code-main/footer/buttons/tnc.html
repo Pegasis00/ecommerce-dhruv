@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms and Conditions</title>
+    <style>
+        /* Apply default font to the entire document */
+        body {
+            background-color: #221f3b; /* Deep purple */
+            color: #f7f7f7; /* Light gray */
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Container styles */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #ffd700; /* Gold */
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .accordion {
+            background-color: #333; /* Dark gray */
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid #444; /* Darker gray */
+        }
+
+        .accordion-header {
+            padding: 15px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .accordion-header:hover {
+            background-color: #444; /* Darker gray */
+        }
+
+        .accordion-content {
+            display: none;
+            padding: 15px;
+            background-color: #444; /* Darker gray */
+        }
+
+        .accordion-content p {
+            margin-bottom: 10px;
+        }
+
+        .accordion-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .active {
+            display: block;
+        }
+
+        a {
+            color: #bb9eff; /* Light purple */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #ffd700; /* Gold */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Terms and Conditions</h1>
+
+        <div class="accordion">
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion('accordion1')">1. Introduction</div>
+                <div class="accordion-content" id="accordion1">
+                    <p>Welcome to our website. If you continue to browse and use this website, you are agreeing to comply with and be bound by the following terms and conditions of use.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion('accordion2')">2. Content Disclaimer</div>
+                <div class="accordion-content" id="accordion2">
+                    <p>The content of the pages of this website is for your general information and use only. It is subject to change without notice.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion('accordion3')">3. Privacy Policy</div>
+                <div class="accordion-content" id="accordion3">
+                    <p>Your use of this website is subject to our Privacy Policy. Please review our Privacy Policy to understand our practices.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion('accordion4')">4. Intellectual Property Rights</div>
+                <div class="accordion-content" id="accordion4">
+                    <p>This website contains material which is owned by or licensed to us. This material includes, but is not limited to, the design, layout, look, appearance, and graphics. Reproduction is prohibited other than in accordance with the copyright notice, which forms part of these terms and conditions.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion('accordion5')">5. Governing Law</div>
+                <div class="accordion-content" id="accordion5">
+                    <p>Your use of this website and any dispute arising out of such use of the website is subject to the laws of Russia.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion('accordion6')">6. Changes to Terms and Conditions</div>
+                <div class="accordion-content" id="accordion6">
+                    <p>We reserve the right to revise these terms and conditions at any time without notice. By using this website, you are agreeing to be bound by the then-current version of these terms and conditions.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion('accordion7')">7. Contact Us</div>
+                <div class="accordion-content" id="accordion7">
+                    <p>If you have any questions about these terms and conditions, please <a href="contact.html">contact us</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleAccordion(id) {
+            var content = document.getElementById(id);
+            var accordions = document.querySelectorAll('.accordion-content');
+            accordions.forEach(function(acc) {
+                if (acc.id !== id) {
+                    acc.style.display = 'none';
+                }
+            });
+            content.style.display = (content.style.display === 'block') ? 'none' : 'block';
+        }
+    </script>
+</body>
+</html>

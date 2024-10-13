@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Us</title>
+    <style>
+        /* Apply default font to the entire document */
+        body {
+            background-color: #221f3b; /* Deep purple */
+            color: #f7f7f7; /* Light gray */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Container styles */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: justify;
+        }
+
+        /* Form styles */
+        form {
+            background-color: #333; /* Dark gray */
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #ffd700; /* Light gold */
+        }
+
+        input[type="text"],
+        input[type="number"],
+        textarea {
+            width: 97%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            margin-bottom: 20px;
+            color: #f7f7f7; /* Light gray */
+            background-color: #221f3b; /* Deep purple */
+        }
+
+        textarea {
+            height: 150px;
+        }
+
+        input[type="submit"] {
+            background-color: #ffd700; /* Light gold */
+            color: #221f3b; /* Deep purple */
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #bb9eff; /* Light purple */
+            color: #fff; /* White */
+        }
+
+        .options {
+            margin-top: 20px;
+        }
+
+        .options label {
+            display: inline-block;
+            margin-right: 20px;
+            color: #ffd700; /* Light gold */
+        }
+
+        .options input[type="checkbox"] {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Review Us</h1>
+        <p>We value your feedback. Your honest reviews help us improve our services. Please share your thoughts below:</p>
+
+        <form action="#" method="POST">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Your Email:</label>
+            <input type="text" id="email" name="email" required>
+
+            <label for="rating">Rating:</label>
+            <input type="number" id="rating" name="rating" min="1" max="5" required>
+
+            <label for="review">Your Review:</label>
+            <textarea id="review" name="review" required></textarea>
+
+            <div class="options">
+                <label for="anonymous">
+                    <input type="checkbox" id="anonymous" name="anonymous">Submit Anonymously
+                </label>
+                <label for="receive-updates">
+                    <input type="checkbox" id="receive-updates" name="receive-updates">Receive Updates & Promotions
+                </label>
+            </div>
+
+            <input type="submit" value="Submit Review">
+        </form>
+    </div>
+</body>
+</html>

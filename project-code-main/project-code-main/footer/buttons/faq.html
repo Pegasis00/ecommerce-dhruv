@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ</title>
+    <style>
+        /* Apply default font to the entire document */
+        body {
+            background-color: #221f3b; /* Deep purple */
+            color: #f7f7f7; /* Light gray */
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Container styles */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* FAQ styles */
+        .faq-item {
+            margin-bottom: 30px;
+        }
+
+        .question {
+            font-weight: bold;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 10px;
+            background-color: #333; /* Dark gray */
+            transition: background-color 0.3s ease;
+            margin-bottom: 10px;
+        }
+
+        .answer {
+            display: none;
+            padding: 15px;
+            background-color: #444; /* Darker gray */
+            border-radius: 10px;
+            line-height: 1.5;
+        }
+
+        .question:hover {
+            background-color: #555; /* Dark gray - darker shade */
+        }
+
+        .answer p {
+            margin: 0;
+            color: #f7f7f7; /* Light gray */
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #ffd700; /* Gold */
+        }
+
+        a {
+            color: #bb9eff; /* Light purple */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #ffd700; /* Gold */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Frequently Asked Questions</h1>
+        
+        <div class="faq-item">
+            <div class="question" onclick="toggleAnswer('answer1')">How can I track my order?</div>
+            <div class="answer" id="answer1">
+                <p>You can track your order by logging into your account and accessing the order status page. Alternatively, you will receive a tracking number via email once your order has been shipped. Tracking information usually becomes available within 24 hours after your order has been dispatched.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="question" onclick="toggleAnswer('answer2')">What payment methods do you accept?</div>
+            <div class="answer" id="answer2">
+                <p>We accept various payment methods including credit/debit cards (Visa, Mastercard, American Express), PayPal, and bank transfers. You can view all available payment options during the checkout process. Please note that payment options may vary depending on your location.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="question" onclick="toggleAnswer('answer3')">Do you offer international shipping?</div>
+            <div class="answer" id="answer3">
+                <p>Yes, we offer international shipping to many countries worldwide. Shipping rates and delivery times may vary depending on the destination. You can check the estimated shipping time and cost during the checkout process by entering your shipping address.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="question" onclick="toggleAnswer('answer4')">What is your return policy?</div>
+            <div class="answer" id="answer4">
+                <p>We want you to be completely satisfied with your purchase. If for any reason you are not satisfied, you can return the item(s) within 30 days of delivery for a full refund or exchange. Please ensure that the item(s) are unused and in their original condition with all tags attached. For more details, please refer to our <a href="#">Return Policy</a> page.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="question" onclick="toggleAnswer('answer5')">How can I contact customer support?</div>
+            <div class="answer" id="answer5">
+                <p>We're here to help! You can contact our customer support team via email at <a href="mailto:support@example.com">support@example.com</a> or by phone at <a href="tel:+11234567890">+1 (123) 456-7890</a>. Our support team is available Monday through Friday, from 9:00 AM to 6:00 PM (EST).</p>
+            </div>
+        </div>
+
+        <!-- Add more FAQ items as needed -->
+
+    </div>
+
+    <script>
+        function toggleAnswer(id) {
+            var answer = document.getElementById(id);
+            var allAnswers = document.querySelectorAll('.answer');
+            allAnswers.forEach(function(ans) {
+                if (ans.id !== id) {
+                    ans.style.display = 'none';
+                }
+            });
+            if (answer.style.display === 'block') {
+                answer.style.display = 'none';
+            } else {
+                answer.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>

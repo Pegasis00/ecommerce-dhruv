@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Standalone Footer</title>
+    <style>
+        /* Apply default font to the entire document */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #221f3b; /* Deep purple */
+            color: #f7f7f7; /* Light gray */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Footer styles */
+        .footer {
+            background-color: #221f3b; /* Deep purple */
+            color: #f7f7f7; /* Light gray */
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer button {
+            background-color: #ffd700; /* Gold */
+            color: #221f3b; /* Deep purple */
+            padding: 12px 24px; /* Increased padding for buttons */
+            border: none;
+            border-radius: 8px; /* Increased border-radius for buttons */
+            margin: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-size: 16px; /* Increased font size */
+            font-weight: bold; /* Bold font weight */
+            text-transform: uppercase; /* Uppercase text */
+        }
+
+        .footer button:hover {
+            background-color: #bb9eff; /* Light purple */
+            color: #fff; /* White */
+            transform: scale(1.05);
+        }
+
+        .footer p {
+            margin-top: 20px; /* Added margin to separate paragraph from buttons */
+            font-size: 14px; /* Decreased font size for paragraph */
+        }
+
+        /* Tabs content styles */
+        .panel {
+            display: none;
+            padding: 20px;
+            background-color: #333333; /* Dark gray */
+            border-radius: 8px;
+            margin-top: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-height: 200px; /* Maximum height for scrollable box */
+            overflow-y: auto; /* Enable vertical scroll */
+        }
+
+        .panel p {
+            color: #f7f7f7; /* Light gray */
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        /* Media query for smaller screens */
+        @media screen and (max-width: 600px) {
+            .footer button {
+                padding: 10px 20px; /* Adjusted padding for smaller screens */
+                font-size: 14px; /* Decreased font size for smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Standalone Footer -->
+    <div class="footer">
+        <button class="accordion" data-target="contact">Contact Us</button>
+        <button class="accordion" data-target="follow">Follow Us</button>
+        <button class="accordion" data-target="about">About Us</button>
+        <button class="accordion" data-target="review">Review Us</button>
+        <button class="accordion" data-target="faq">Frequently Asked Questions</button>
+        <button class="accordion" data-target="tnc">Terms and Conditions</button>
+
+        <!-- Tabs content -->
+        <div id="contact" class="panel">
+            <div class="content">
+                <p>Contact Us Content Goes Here</p>
+            </div>
+        </div>
+        <div id="follow" class="panel">
+            <div class="content">
+                <p>Follow Us Content Goes Here</p>
+            </div>
+        </div>
+        <div id="about" class="panel">
+            <div class="content">
+                <p>About Us Content Goes Here</p>
+            </div>
+        </div>
+        <div id="review" class="panel">
+            <div class="content">
+                <p>Review Us Content Goes Here</p>
+            </div>
+        </div>
+        <div id="faq" class="panel">
+            <div class="content">
+                <p>Frequently Asked Questions Content Goes Here</p>
+            </div>
+        </div>
+        <div id="tnc" class="panel">
+            <div class="content">
+                <p>Terms and Conditions Content Goes Here</p>
+            </div>
+        </div>
+
+        <p>Shop smarter, live better. Explore our latest collections and enjoy secure shopping at [BUYit]. &copy; [2069] All rights reserved.</p>
+    </div>
+
+    <script>
+        // Get all accordion buttons
+        var acc = document.getElementsByClassName("accordion");
+
+        // Loop through each accordion button
+        for (var i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                // Toggle active class to highlight the active tab and close others
+                for (var j = 0; j < acc.length; j++) {
+                    if (acc[j] !== this) {
+                        acc[j].classList.remove("active");
+                        var panel = document.getElementById(acc[j].dataset.target);
+                        panel.style.display = "none";
+                    }
+                }
+                this.classList.toggle("active");
+
+                // Get the target panel
+                var panel = document.getElementById(this.dataset.target);
+
+                // Toggle the visibility of the panel
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
+            });
+        }
+    </script>
+</body>
+</html>
