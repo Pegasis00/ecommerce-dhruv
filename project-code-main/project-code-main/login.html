@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Login to BuyIt Account</title>
 	<link rel="stylesheet" href="styles/login/style.css">
 </head>
@@ -9,40 +10,41 @@
 	<section>
 		<div class="leaves">
 			<div class="set">
-				<div><img src="images/login/leaf_01.png"></div>
-				<div><img src="images/login/leaf_02.png"></div>
-				<div><img src="images/login/leaf_03.png"></div>
-				<div><img src="images/login/leaf_04.png"></div>
-				<div><img src="images/login/leaf_01.png"></div>
-				<div><img src="images/login/leaf_02.png"></div>
-				<div><img src="images/login/leaf_03.png"></div>
-				<div><img src="images/login/leaf_04.png"></div>
+				<div><img src="images/login/leaf_01.png" alt="Decorative leaf 1"></div>
+				<div><img src="images/login/leaf_02.png" alt="Decorative leaf 2"></div>
+				<div><img src="images/login/leaf_03.png" alt="Decorative leaf 3"></div>
+				<div><img src="images/login/leaf_04.png" alt="Decorative leaf 4"></div>
+				<div><img src="images/login/leaf_01.png" alt="Decorative leaf 1"></div>
+				<div><img src="images/login/leaf_02.png" alt="Decorative leaf 2"></div>
+				<div><img src="images/login/leaf_03.png" alt="Decorative leaf 3"></div>
+				<div><img src="images/login/leaf_04.png" alt="Decorative leaf 4"></div>
 			</div>
 		</div>
-		<img src="images/login/bg.jpg" class="bg">
-		<img src="images/login/girl.png" class="girl">
-		<img src="images/login/trees.png" class="trees">
+		<img src="images/login/bg.jpg" class="bg" alt="Background image">
+		<img src="images/login/girl.png" class="girl" alt="Decorative girl image">
+		<img src="images/login/trees.png" class="trees" alt="Decorative trees image">
         
-		<div class="login">
-            
-            <h2  class="login-name" >BUYit</h2>
-			<h2 >Sign In</h2>
+		<form class="login">
+            <h2 class="login-name">BUYit</h2>
+			<h2>Sign In</h2>
            
 			<div class="inputBox">
-				<input type="text" placeholder="Username"
+				<input type="text" placeholder="Username" required>
 			</div>
 			<div class="inputBox">
-				<input type="password" placeholder="Password"
+				<input type="password" placeholder="Password" required>
 			</div>
 			<div class="inputBox">
 				<input type="submit" value="Login" id="btn">
 			</div>
 			<div class="group">
 				<a href="#">Forget Password</a>
-				<a href="#">Signup</a>
+				<a href="signup.html">Sign Up</a>
 			</div>
-		</div>
+		</form>
 		
 	</section>
+
+    <script src="scripts/login.js"></script>
 </body>
 </html>

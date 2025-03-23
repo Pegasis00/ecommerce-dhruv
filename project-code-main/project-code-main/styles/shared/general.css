@@ -1,9 +1,11 @@
 body {
+  margin: 0;
+  padding-top: 80px;
   font-family: Roboto, Arial;
+  height: 3000px;
   color: rgb(33, 33, 33);
   /* The <body> element has a default margin of 8px
      on all sides. This removes the default margins. */
-  margin: 0;
 }
 
 /* <p> elements have a default margin on the top
@@ -98,4 +100,25 @@ select {
 select:focus,
 input:focus {
   outline: 2px solid rgb(255, 153, 0);
+}
+
+.amazon-header {
+  background-color: #131921;
+  color: white;
+  padding: 12px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  z-index: 100;
+}
+
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }

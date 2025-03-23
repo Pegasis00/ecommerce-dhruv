@@ -24,36 +24,39 @@
       <div class="amazon-header-left-section">
         <a href="buyit.html" class="header-link">
           <img class="amazon-logo"
-            src="images/BUYIT-logos_transparent.png">
+            src="images/BUYIT-logos_transparent.png"
+            alt="BUYIT Logo">
           <img class="amazon-mobile-logo"
-            src="images/amazon-mobile-logo-white.png">
+            src="images/amazon-mobile-logo-white.png"
+            alt="BUYIT Mobile Logo">
         </a>
       </div>
 
       <div class="amazon-header-middle-section">
         <input class="search-bar" type="text" placeholder="Search">
 
-        <button class="search-button">
-          <img class="search-icon" src="images/icons/search-icon.png">
+        <button class="search-button" aria-label="Search">
+          <img class="search-icon" 
+            src="images/icons/search-icon.png"
+            alt="Search">
         </button>
-        
-        
       </div>
 
       <div class="amazon-header-right-section">
-        <a  class="Login" href="login.html">
+        <a class="Login" href="login.html" id="loginLink">
           Login
         </a>
 
-        <a class="orders-link header-link" href="orders.html">
-          
+        <a class="orders-link header-link" href="orders.html" id="ordersLink" style="display: none;">
           <span class="returns-text">Returns</span>
           <span class="orders-text">& Orders</span>
         </a>
 
         <a class="cart-link header-link" href="checkout.html">
-          <img class="cart-icon" src="images/icons/cart-icon.png">
-          <div class="cart-quantity js-cart-quantity">0</div>
+          <img class="cart-icon" 
+            src="images/icons/cart-icon.png"
+            alt="Shopping Cart">
+          <div class="cart-quantity">0</div>
           <div class="cart-text">Cart</div>
         </a>
       </div>
@@ -61,13 +64,27 @@
     
     <div class="main">
       <div class="products-grid js-products-grid">
-       
       </div>
     </div>
     
-    <!--this java file create all the product 47-195-->
-    
-    <!--this java script file loops through the product and create the html -->
+    <script>
+      // Check login state
+      const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+      const loginLink = document.getElementById('loginLink');
+      const ordersLink = document.getElementById('ordersLink');
+
+      if (currentUser && currentUser.isLoggedIn) {
+        loginLink.textContent = `Welcome, ${currentUser.username}`;
+        loginLink.href = '#';
+        ordersLink.style.display = 'block';
+      } else {
+        loginLink.textContent = 'Login';
+        loginLink.href = 'login.html';
+        ordersLink.style.display = 'none';
+      }
+    </script>
+
+    <script type="module" src="scripts/cart.js"></script>
     <script type="module" src="scripts/amazon.js"></script>
   </body>
 </html>

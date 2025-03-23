@@ -23,17 +23,21 @@
       <div class="amazon-header-left-section">
         <a href="buyit.html" class="header-link">
           <img class="amazon-logo"
-            src="images/BUYIT-logos_transparent.png">
+            src="images/BUYIT-logos_transparent.png"
+            alt="BUYIT Logo">
           <img class="amazon-mobile-logo"
-            src="images/amazon-mobile-logo-white.png">
+            src="images/amazon-mobile-logo-white.png"
+            alt="BUYIT Mobile Logo">
         </a>
       </div>
 
       <div class="amazon-header-middle-section">
         <input class="search-bar" type="text" placeholder="Search">
 
-        <button class="search-button">
-          <img class="search-icon" src="images/icons/search-icon.png">
+        <button class="search-button" aria-label="Search">
+          <img class="search-icon" 
+            src="images/icons/search-icon.png"
+            alt="Search">
         </button>
       </div>
 
@@ -44,8 +48,10 @@
         </a>
 
         <a class="cart-link header-link" href="checkout.html">
-          <img class="cart-icon" src="images/icons/cart-icon.png">
-          <div class="cart-quantity">3</div>
+          <img class="cart-icon" 
+            src="images/icons/cart-icon.png"
+            alt="Shopping Cart">
+          <div class="cart-quantity">0</div>
           <div class="cart-text">Cart</div>
         </a>
       </div>
@@ -54,137 +60,198 @@
     <div class="main">
       <div class="page-title">Your Orders</div>
 
-      <div class="orders-grid">
-        <div class="order-container">
-          
-          <div class="order-header">
-            <div class="order-header-left-section">
-              <div class="order-date">
-                <div class="order-header-label">Order Placed:</div>
-                <div>August 12</div>
-              </div>
-              <div class="order-total">
-                <div class="order-header-label">Total:</div>
-                <div>$35.06</div>
-              </div>
-            </div>
+      <div class="orders-grid" id="ordersGrid">
+        <!-- Orders will be dynamically added here -->
+      </div>
 
-            <div class="order-header-right-section">
-              <div class="order-header-label">Order ID:</div>
-              <div>27cba69d-4c3d-4098-b42d-ac7fa62b7664</div>
-            </div>
-          </div>
-
-          <div class="order-details-grid">
-            <div class="product-image-container">
-              <img src="images/products/athletic-cotton-socks-6-pairs.jpg">
-            </div>
-
-            <div class="product-details">
-              <div class="product-name">
-                Black and Gray Athletic Cotton Socks - 6 Pairs
-              </div>
-              <div class="product-delivery-date">
-                Arriving on: August 15
-              </div>
-              <div class="product-quantity">
-                Quantity: 1
-              </div>
-              <button class="buy-again-button button-primary">
-                <img class="buy-again-icon" src="images/icons/buy-again.png">
-                <span class="buy-again-message">Buy it again</span>
-              </button>
-            </div>
-
-            <div class="product-actions">
-              <a href="tracking.html">
-                <button class="track-package-button button-secondary">
-                  Track package
-                </button>
-              </a>
-            </div>
-
-            <div class="product-image-container">
-              <img src="images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg">
-            </div>
-
-            <div class="product-details">
-              <div class="product-name">
-                Adults Plain Cotton T-Shirt - 2 Pack
-              </div>
-              <div class="product-delivery-date">
-                Arriving on: August 19
-              </div>
-              <div class="product-quantity">
-                Quantity: 2
-              </div>
-              <button class="buy-again-button button-primary">
-                <img class="buy-again-icon" src="images/icons/buy-again.png">
-                <span class="buy-again-message">Buy it again</span>
-              </button>
-            </div>
-
-            <div class="product-actions">
-              <a href="tracking.html">
-                <button class="track-package-button button-secondary">
-                  Track package
-                </button>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="order-container">
-
-          <div class="order-header">
-            <div class="order-header-left-section">
-              <div class="order-date">
-                <div class="order-header-label">Order Placed:</div>
-                <div>June 10</div>
-              </div>
-              <div class="order-total">
-                <div class="order-header-label">Total:</div>
-                <div>$41.90</div>
-              </div>
-            </div>
-
-            <div class="order-header-right-section">
-              <div class="order-header-label">Order ID:</div>
-              <div>b6b6c212-d30e-4d4a-805d-90b52ce6b37d</div>
-            </div>
-          </div>
-
-          <div class="order-details-grid">
-            <div class="product-image-container">
-              <img src="images/products/intermediate-composite-basketball.jpg">
-            </div>
-
-            <div class="product-details">
-              <div class="product-name">
-                Intermediate Size Basketball
-              </div>
-              <div class="product-delivery-date">
-                Arriving on: June 17
-              </div>
-              <div class="product-quantity">
-                Quantity: 2
-              </div>
-              <button class="buy-again-button button-primary">
-                <img class="buy-again-icon" src="images/icons/buy-again.png">
-                <span class="buy-again-message">Buy it again</span>
-              </button>
-            </div>
-
-            <div class="product-actions">
-              <a href="tracking.html">
-                <button class="track-package-button button-secondary">
-                  Track package
-                </button>
-              </a>
-            </div>
-          </div>
-        </div>
+      <div id="noOrdersMessage" style="display: none; text-align: center; margin-top: 20px;">
+        <p>You haven't placed any orders yet.</p>
+        <a href="buyit.html" class="button-primary">Start Shopping</a>
       </div>
     </div>
+
+    <script type="module" src="scripts/cart.js"></script>
+    <script>
+      // Check if user is logged in
+      const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+      if (!currentUser || !currentUser.isLoggedIn) {
+        window.location.href = 'login.html';
+      }
+
+      // Get orders from localStorage
+      let orders = JSON.parse(localStorage.getItem('orders')) || {};
+      const userOrders = orders[currentUser.username] || [];
+
+      const ordersGrid = document.getElementById('ordersGrid');
+      const noOrdersMessage = document.getElementById('noOrdersMessage');
+
+      if (userOrders.length === 0) {
+        ordersGrid.style.display = 'none';
+        noOrdersMessage.style.display = 'block';
+      } else {
+        // Display user's orders
+        ordersGrid.innerHTML = `
+          <table class="orders-table">
+            <thead>
+              <tr>
+                <th>Order ID</th>
+                <th>Date</th>
+                <th>Items</th>
+                <th>Total</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${userOrders.map(order => `
+                <tr class="order-row">
+                  <td class="order-id">${order.orderId}</td>
+                  <td class="order-date">${order.date}</td>
+                  <td class="order-items">
+                    <table class="items-table">
+                      ${order.items.map(item => `
+                        <tr>
+                          <td class="item-image">
+                            <img src="${item.image}" alt="${item.name}">
+                          </td>
+                          <td class="item-details">
+                            <div class="item-name">${item.name}</div>
+                            <div class="item-quantity">Quantity: ${item.quantity}</div>
+                            <div class="item-delivery">Delivery: ${item.deliveryDate}</div>
+                          </td>
+                          <td class="item-price">$${(item.price * item.quantity).toFixed(2)}</td>
+                        </tr>
+                      `).join('')}
+                    </table>
+                  </td>
+                  <td class="order-total">$${order.total.toFixed(2)}</td>
+                  <td class="order-status">
+                    <div class="status-badge">Processing</div>
+                    <a href="tracking.html" class="track-button">Track Order</a>
+                  </td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        `;
+      }
+
+      // Add CSS for the orders table
+      const style = document.createElement('style');
+      style.textContent = `
+        .orders-table {
+          width: 100%;
+          border-collapse: collapse;
+          margin-top: 20px;
+        }
+
+        .orders-table th {
+          background-color: #f8f8f8;
+          padding: 12px;
+          text-align: left;
+          border-bottom: 2px solid #ddd;
+        }
+
+        .orders-table td {
+          padding: 15px;
+          border-bottom: 1px solid #ddd;
+          vertical-align: top;
+        }
+
+        .order-row:hover {
+          background-color: #fafafa;
+        }
+
+        .order-id {
+          color: #007185;
+          font-weight: 500;
+        }
+
+        .order-date {
+          color: #565959;
+        }
+
+        .items-table {
+          width: 100%;
+          border-collapse: collapse;
+        }
+
+        .items-table tr {
+          border-bottom: 1px solid #eee;
+        }
+
+        .items-table tr:last-child {
+          border-bottom: none;
+        }
+
+        .item-image img {
+          width: 60px;
+          height: 60px;
+          object-fit: cover;
+        }
+
+        .item-details {
+          padding: 0 15px;
+        }
+
+        .item-name {
+          font-weight: 500;
+          margin-bottom: 5px;
+        }
+
+        .item-quantity {
+          color: #565959;
+          font-size: 14px;
+        }
+
+        .item-delivery {
+          color: #007600;
+          font-size: 14px;
+          margin-top: 3px;
+        }
+
+        .item-price {
+          color: #B12704;
+          font-weight: 500;
+          text-align: right;
+        }
+
+        .order-total {
+          color: #B12704;
+          font-weight: 500;
+          font-size: 16px;
+        }
+
+        .order-status {
+          text-align: center;
+        }
+
+        .status-badge {
+          display: inline-block;
+          padding: 4px 8px;
+          background-color: #fff8e7;
+          color: #a88734;
+          border: 1px solid #fcd200;
+          border-radius: 4px;
+          font-size: 14px;
+          margin-bottom: 8px;
+        }
+
+        .track-button {
+          display: inline-block;
+          padding: 6px 12px;
+          background-color: #f0f2f2;
+          border: 1px solid #d5d9d9;
+          border-radius: 4px;
+          color: #0F1111;
+          text-decoration: none;
+          font-size: 14px;
+        }
+
+        .track-button:hover {
+          background-color: #e7e9ec;
+        }
+      `;
+      document.head.appendChild(style);
+    </script>
   </body>
 </html>
